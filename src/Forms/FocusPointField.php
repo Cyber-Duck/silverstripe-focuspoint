@@ -85,9 +85,9 @@ class FocusPointField extends FieldGroup
             $h = intval($this->config()->get('max_height'));
             $previewImage = $this->image->FitMax($w * 2, $h * 2);
             $state['data'] += [
-                'previewUrl' => $previewImage->URL,
-                'previewWidth' => $previewImage->getWidth(),
-                'previewHeight' => $previewImage->getHeight(),
+                'previewUrl' => isset($previewImage->URL)? $previewImage->URL: null,
+                'previewWidth' => ($previewImage)? $previewImage->getWidth(): null,
+                'previewHeight' => ($previewImage)? $previewImage->getHeight(): null,
                 'X' => $this->image->getField($this->getName())->getX(),
                 'Y' => $this->image->getField($this->getName())->getY()
             ];
